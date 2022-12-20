@@ -7,5 +7,6 @@
 *.xml
 *.svg
 .vscode
+*.ico
 /stt/configs/
 /dtp_media/
