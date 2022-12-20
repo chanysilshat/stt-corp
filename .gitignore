@@ -5,5 +5,7 @@
 *.gif
 *.mp4
 *.xml
+*.svg
 .vscode
 /stt/configs/
+/dtp_media/
