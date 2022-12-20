@@ -14,7 +14,7 @@
                         <?endforeach?>
                     </select>
                 <?else:?>
-                    <input type="text" name="table-handler[data][<?=$field?>]" value="<?=$arData["data"][0][$field]?>">
+                    <input type="text" name="table-handler[data][<?=$field?>]" value='<?=$arData["data"][0][$field]?>'>
                 <?endif?>
             </div>
         </div>

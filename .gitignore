@@ -10,3 +10,4 @@
 *.ico
 /stt/configs/
 /dtp_media/
+/stt/json/database/

@@ -66,12 +66,42 @@ class InstallAvarcom extends Install{
     ]; 
     
     public function beforeSetDefaultValues(){
+
         $fileName = $_SERVER["DOCUMENT_ROOT"] . "/stt/json/database/avarcom_pages.json";
 
         if (file_exists($fileName)){
             $data = json_decode(file_get_contents($fileName), true);
             $this->defaultValues["avarcom_pages"] = $data;
         }
+
+        $fileName = $_SERVER["DOCUMENT_ROOT"] . "/stt/json/database/avarcom_stat_visitor_ip.json";
+
+        if (file_exists($fileName)){
+            $data = json_decode(file_get_contents($fileName), true);
+            $this->defaultValues["avarcom_stat_visitor_ip"] = $data;
+        }
+
+        $fileName = $_SERVER["DOCUMENT_ROOT"] . "/stt/json/database/avarcom_stat_visitor_yandex.json";
+
+        if (file_exists($fileName)){
+            $data = json_decode(file_get_contents($fileName), true);
+            $this->defaultValues["avarcom_stat_visitor_yandex"] = $data;
+        }
+
+        $fileName = $_SERVER["DOCUMENT_ROOT"] . "/stt/json/database/avarcom_stat_visitor_refers.json";
+
+        if (file_exists($fileName)){
+            $data = json_decode(file_get_contents($fileName), true);
+            $this->defaultValues["avarcom_stat_visitor_refers"] = $data;
+        }
+
+        $fileName = $_SERVER["DOCUMENT_ROOT"] . "/stt/json/database/avarcom_stat_history.json";
+
+        if (file_exists($fileName)){
+            $data = json_decode(file_get_contents($fileName), true);
+            $this->defaultValues["avarcom_stat_history"] = $data;
+        }
+
     }
 
 }
