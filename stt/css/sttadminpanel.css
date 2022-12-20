@@ -1,0 +1,133 @@
+body{
+    margin: 0;
+}
+.stt_panel{
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+}
+.stt_panel_menu{
+    max-width: 350px;
+    min-width: 50px;
+    width: 50px;
+    background-color: #3F3F3F;
+    padding: 10px;
+    transition: 1s;
+    display: block;
+    position: relative;
+}
+
+.menu_logo_block img{
+    cursor: pointer;
+}
+.menu_logo{
+    width: 50px;
+}
+.menu-open .stt_panel_menu{
+    width: 350px;
+}
+.menu_icon_open{
+    display: block;
+}
+.menu-open .menu_icon_open{
+    display: none;
+}
+.menu_icon_close{
+    display: none;
+}
+.menu-open .menu_icon_close{
+    display: block;
+}
+.menu_logo_block{
+    display: flex;
+    justify-content: end;
+    transition: 1s;
+}
+.menu-open .menu_logo_block{
+    justify-content: end;
+}
+.stt_panel_page{
+    width: calc(100% - 70px);
+    transition: 1s;
+}
+.menu-open .stt_panel_page{
+    width: calc(100% - 370px);
+}
+.stt_panel_page_head{
+    padding: 10px;
+    height: 50px;
+    background-color: #3F3F3F;
+}
+.stt_panel_page_block{
+    padding: 10px;
+    overflow: auto;
+    position: relative;
+}
+.menu_item_block{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.menu_item{
+
+}
+.menu_href{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.menu_href::after{
+    content: "";
+    height: 3px;
+    background: #fff;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    transition: 1s;
+}
+.menu_href.active::after{
+    width: 100%;
+}
+.menu_name{
+    display: none;
+}
+.menu_href{
+    color: #fff;
+    text-decoration: none; 
+}
+a:visited{
+    text-decoration: none; 
+}
+.menu-open .menu_name{
+    display: block;
+}
+.stt_form_block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.stt_form{
+    max-width: 300px;
+    width: 100%;
+    border: 1px solid #3F3F3F;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+.stt_form_login_input, .stt_form_password_input{
+    width: 100%;
+}
+.head_block{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.stt-table td{
+    padding: 10px;
+}

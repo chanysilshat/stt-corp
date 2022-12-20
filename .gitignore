@@ -1,0 +1,9 @@
+*.txt
+*.png
+*.jpg
+*.html
+*.gif
+*.mp4
+*.xml
+.vscode
+/stt/configs/
