@@ -410,7 +410,7 @@
                 <div class="contact">
                     <div class="location-sity">
                         <div class="city-item">
-                            <a href="text" onclick="return false">
+                            <a href="#" onclick="return false">
                                 <svg width="15px" height="11px" viewBox="0 0 68 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                                     <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
                                     <defs></defs>
