@@ -3,6 +3,7 @@ class SttAdminPanel{
     constructor(){
        this.js = {};
        this.jsSrc = {};
+       this.Body = "";
     }
 
 
@@ -10,6 +11,9 @@ class SttAdminPanel{
     showPanelTemplate(){
         var thisClass = this;
         document.addEventListener('DOMContentLoaded', function(){
+            thisClass.Body = document.querySelector('body').innerHTML;
+
+
             document.querySelector('body').innerHTML = "";
             let formData = new FormData();
             formData.append('header_mode', 0);
@@ -28,6 +32,11 @@ class SttAdminPanel{
                     if (thisClass.projectParams.user_authorized == "y"){
                         thisClass.constructPanelTemplate();
                         document.querySelector('body').append(thisClass.stt_panel);
+
+                        var ST = new SttTables(); 
+                        ST.setSttAdminProject(thisClass);
+                        ST.searchTables();
+                        
                     } else {
                         thisClass.contructAutorizeForm();
                         document.querySelector('body').append(thisClass.stt_form_block);
@@ -97,7 +106,7 @@ class SttAdminPanel{
         stt_panel_page_head.append(this.constructHeadPanel(stt_panel_page_head));
 
         /**Загрузка страницы */
-        let formData = new FormData();
+        /*let formData = new FormData();
         formData.append('header_mode', 0);
         formData.append('load_script', 1);
         formData.append('load_css', 1);
@@ -111,19 +120,20 @@ class SttAdminPanel{
         }
 
         xhr.onload = () => {
-            stt_panel_page_block.innerHTML = xhr.response;
+            
+        }*/
 
-            this.editDynamicsHref(stt_panel_page_block);
+        stt_panel_page_block.innerHTML = thisClass.Body;
 
-            var ST = new SttTables(); 
-            ST.setSttAdminProject(thisClass);
-            ST.searchTables();
-
-        }
-
+        this.editDynamicsHref(stt_panel_page_block);
 
         stt_panel_page.append(stt_panel_page_head, stt_panel_page_block);
         this.stt_panel = stt_panel;
+
+
+
+
+       
 
     }
 
