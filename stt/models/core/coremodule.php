@@ -9,6 +9,7 @@ class CoreModule extends Module{
             "database",
             "tables",
             "module",
+            "structuresystem",
         ],
         "globals" => [
             "session",
@@ -19,6 +20,7 @@ class CoreModule extends Module{
             "core", //Ядро проекта
             "Crypter",
             "stt", //
+            "archive", //
         ], 
         "manage" => ["manage"],
     ];

@@ -56,9 +56,10 @@
   
         //Подключает необходимые модули
         public static function includeModules($module_code){
-
+            global $PROJECT;
             $fullName = $_SERVER["DOCUMENT_ROOT"] . "/stt/models/" . $module_code . "/" . $module_code . "module.php";
             if (file_exists($fullName)){
+                $PROJECT->includuModulesList[$module_code] = $module_code;
                 require_once $fullName;
             }
         }    

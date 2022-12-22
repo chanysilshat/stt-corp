@@ -10,6 +10,7 @@ class Page{
         //$title = "Тестовый тайтл";
         file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/page.txt", print_r($buffer, true));
         
+        $script = "";
         $title = $PROJECT->title;
         $keywords = $PROJECT->keywords;
         $description = $PROJECT->description;

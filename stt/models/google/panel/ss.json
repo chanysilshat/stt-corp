@@ -1,6 +1,4 @@
-<?php
-//https://searchconsole.googleapis.com/$discovery/rest?version=v1
-$json = '{
+{
     "type": "service_account",
     "project_id": "stt-project-372301",
     "private_key_id": "d3b20e9bd486f4611267370bc14d1077a1813ab2",
@@ -11,59 +9,5 @@ $json = '{
     "token_uri": "https://oauth2.googleapis.com/token",
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/stt-corp%40stt-project-372301.iam.gserviceaccount.com"
-  }
-   ';
-
-/*ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);*/
-require_once  $_SERVER["DOCUMENT_ROOT"] . '/stt/models/google/vendor/autoload.php';
-
-$googleAccountKeyFilePath = $_SERVER["DOCUMENT_ROOT"] . "/stt/models/google/panel/ss.json";
-putenv( 'GOOGLE_APPLICATION_CREDENTIALS=' .  $googleAccountKeyFilePath);
-
-$client = new Google\Client();
-
-$client->useApplicationDefaultCredentials();
-$client->addScope( 'https://www.googleapis.com/auth/webmasters' );
-
-$webmaster = new Google\Service\Webmasters($client);
-
-// Получаем список сайтов, к которым есть доступ
-//$listSites = $webmaster->sites->listSites();
-
-// Получаем информацию о сайте
-//$site = $webmaster->sites->get('https://avarcom702.stt-corp.ru/');
-
-// Получаем список добавленных файлов Sitemap
-//$listSitemaps = $webmaster->sitemaps->listSitemaps('https://avarcom702.stt-corp.ru/');
-
-// Получаем информацию о файле sitemap
-/*
-$sitemap = $webmaster->sitemaps->get(
-	'https://avarcom702.stt-corp.ru/', // Адрес сайта
-	'https://avarcom702.stt-corp.ru/avar_sitemap.xml' // Путь до карты сайта
-);*/
-
-
-
-
-
-/*
-$postBody = new Google\Service\Webmasters\SearchAnalyticsQueryRequest( [
-	'startDate'  => '2019-01-01',
-	'endDate'    => '2022-12-21',
-	'dimensions' => [
-		'query',
-		//'device',
-		//'date'
-	],
-	'rowLimit' => 5,
-	'startRow' => 0
-] );
-$searchAnalyticsResponse = $webmaster->searchanalytics->query( 'https://avarcom702.stt-corp.ru/', $postBody );
-
- */
-
-
-echo "<pre>"; print_r($urlInspection_index); echo "</pre>";
+}
+   

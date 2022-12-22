@@ -50,8 +50,8 @@ class AutoLoaderModels{
         if (file_exists($fullFileName)) {
             require_once $fullFileName;
         } else {
-            echo 'Class "'.$className.'" does not exist.<br>';
-            echo $fullFileName;
+            //echo 'Class "'.$className.'" does not exist.<br>';
+            //echo $fullFileName;
         }
     }
     public function getLoadedArray(){

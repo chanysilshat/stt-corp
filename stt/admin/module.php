@@ -4,6 +4,8 @@ if (isset($_REQUEST["DYNAMICS_PAGE"]["module_code"])){
     $models = $_REQUEST["DYNAMICS_PAGE"]["module_code"];
     $fileFullName = $_SERVER["DOCUMENT_ROOT"] . '/stt/models/'.$models.'/panel/index.php';
 
+    global $PROJECT;
+    $PROJECT::includeModules($models);
     if (file_exists($fileFullName)){
         require_once $fileFullName;
     }
@@ -18,7 +20,6 @@ while($models = readdir($dir)){
     if (is_dir('stt/models/'.$models.'/panel/') && $models != '.' && $models != '..') {
 
         $fileFullName = $_SERVER["DOCUMENT_ROOT"] . '/stt/models/'.$models.'/panel/index.php';
-
         if (file_exists($fileFullName)){
             $PROJECT::includeModules($models);
 
@@ -38,7 +39,6 @@ while($models = readdir($dir)){
     }
 }
 
-echo "<pre>"; print_r($_REQUEST); echo "</pre>";
 foreach ($modelsList as $module):?>
     <div class="module-item">
         <a stt-admin href="/admin/modules/<?=$module["module_name"]?>/"><?=$module["module_title"]?></a>

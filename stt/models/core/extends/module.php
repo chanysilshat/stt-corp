@@ -1,7 +1,7 @@
 <?
 abstract class Module{
 
-    private $autoload;
+    protected $autoload;
 
     protected $moduleName;
     protected $moduleTitle = "";
@@ -14,8 +14,9 @@ abstract class Module{
         global $PROJECT; 
         $this->autoload = $PROJECT->objects["AutoLoad"];
 
-
         if (!empty($this->moduleName)){
+            $this->beforeExecuteModule();
+
             $this->autoload->moduleName = $this->moduleName;
             if (!empty($this->arFields)){
                 $this->autoload->includeClass($this->arFields);
@@ -27,6 +28,10 @@ abstract class Module{
             $this->moduleTitle = $this->moduleName;
         }
     } 
+
+    public function beforeExecuteModule(){
+
+    }
 
     public function executeModule(){
 
