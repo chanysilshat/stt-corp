@@ -21,6 +21,7 @@ class CoreModule extends Module{
             "Crypter",
             "stt", //
             "archive", //
+            "sttconfigs", //
         ], 
         "manage" => ["manage"],
     ];
@@ -31,11 +32,17 @@ class CoreModule extends Module{
 
         
         $User = new User();
-
         $tables = new Tables();
+        $Configs = new STTConfig();
+
         $tables->setDataBaseObject($PROJECT->objects["Core"]->DataBaseObject);
         $User->setTablesObject($tables);
         
+        $Configs->setDataBaseObject($PROJECT->objects["Core"]->DataBaseObject);
+        $Configs->setTablesObject($tables);
+
         $PROJECT->setObject("TABLES", $tables);
+        $PROJECT->setConfigObject($Configs);
+        
     }
 }

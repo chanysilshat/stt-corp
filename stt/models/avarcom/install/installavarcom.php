@@ -63,6 +63,15 @@ class InstallAvarcom extends Install{
             ],
            
         ], 
+        "stt_configs" => [
+            [
+                "config_name" => "Телеграм токен",
+                "config_code" => "TELEGRAM_TOKEN",
+                "config_value" => "5604356654:AAHzR3JQIVIGju_lf_zgyRpfcubTyou15ww",
+                "module_code" => "avarcom",
+            ],
+           
+        ], 
     ]; 
     
     public function beforeSetDefaultValues(){

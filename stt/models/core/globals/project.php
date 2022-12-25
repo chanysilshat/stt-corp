@@ -12,10 +12,11 @@
         public $title = "";
         public $keywords = "";
         public $description = "";
+        public $sessionObject;
 
         private $objectsList;
         private $controllerObject; 
-        public $sessionObject;
+        private $configObject;
 
         public function __construct(){
 
@@ -87,20 +88,35 @@
             }
         }
 
-        public function includeControllerJsScripts($controller, $view){
+        public function includeControllerJsScripts($controller, $view)
+        {
             if ($this->controllerObject->includeControllerJsScript($controller, $view)){
                 $this->projectJsScripts[] = $this->controllerObject->includeControllerJsScript($controller, $view);
             }
         }
 
-        public function setSessionObject($object){
+        public function setSessionObject($object)
+        {
             $this->sessionObject = $object;
         }
 
-        public function setSessionValues($key, $value){
+        public function setSessionValues($key, $value)
+        {
             $this->sessionObject->setSessionValues($key, $value);
         }
-        public function removeSessionValue($key){
+
+        public function removeSessionValue($key)
+        {
             $this->sessionObject->removeSessionValue($key);
+        }
+
+        public function setConfigObject($configObject)
+        {
+            $this->configObject = $configObject;
+        }
+
+        public function getConfigValue($config, $module)
+        {
+            return $this->configObject->getConfigValue($config, $module);
         }
     } 

@@ -20,10 +20,13 @@
     $Load->includeClass($arFields);
 
     $stt = new STT();
+
     global $dbconnect;
     global $PROJECT;
     global $User;
     global $Session;
+
+
     $PROJECT = new Project();
     $PROJECT::includeModules("core");
 

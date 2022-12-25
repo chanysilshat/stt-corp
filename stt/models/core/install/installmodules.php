@@ -64,12 +64,7 @@ class InstallModules{
             unset($ch_class);
         }
 
-        foreach ($children as $class){
-            $ch_class = new $class();
-            $ch_class->setDataBaseObject($this->DataBase);
-            $ch_class->createConnectionFromTables();
-            unset($ch_class);
-        }
+        
         foreach ($children as $class){
 
             $ch_class = new $class();
@@ -82,6 +77,12 @@ class InstallModules{
             $ch_class->afterSetDefaultValues();
         }
 
+        foreach ($children as $class){
+            $ch_class = new $class();
+            $ch_class->setDataBaseObject($this->DataBase);
+            $ch_class->createConnectionFromTables();
+            unset($ch_class);
+        }
        
     }
 

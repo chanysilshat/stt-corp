@@ -32,13 +32,21 @@ class InstallCore extends Install{
             "user_group" => "INT",
             "PRIMARY KEY" => "(id)",
         ],  
-         "stt_url_address" => [
+        "stt_url_address" => [
             "id" => "INT AUTO_INCREMENT",
             "page_condition" => "VARCHAR(255)", //Название таблиц
             "manage_file" => "VARCHAR(255)", //Название таблиц
             "page_request" => "VARCHAR(255)",
             "PRIMARY KEY" => "(id)",
         ], 
+        "stt_configs" => [
+            "id" => "INT AUTO_INCREMENT",
+            "config_name" => "VARCHAR(255)",
+            "config_code" => "VARCHAR(255)",
+            "config_value" => "VARCHAR(255)",
+            "module_code" => "VARCHAR(255)",
+            "PRIMARY KEY" => "(id)",
+        ]
     ];
 
     protected $connectionsFromTables = [

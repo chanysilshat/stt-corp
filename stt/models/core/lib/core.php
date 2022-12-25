@@ -2,14 +2,15 @@
     class Core{
 
         public $DataBaseObject;
-        private $loadedObject;
         public $header = 1;
         public $load_script = 0;
         public $load_css = 0;
+        
         private $headView = "";
         private $headerView = "";
         private $footerView = "";
-        
+        private $loadedObject;
+
         public function __construct(){
             $this->DataBaseObject = new DataBase();
             if (isset($_REQUEST["header_mode"])){

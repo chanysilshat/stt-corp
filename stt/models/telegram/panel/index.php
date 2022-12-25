@@ -28,6 +28,8 @@ $PROJECT::includeModules("rest");
 $RestModule = new RestModule();
 $OutRest = new OutRest();
 
+$telegramConfig = $PROJECT->getConfigValue("TELEGRAM_TOKEN", "avarcom");
+echo "<pre>"; print_r($telegramConfig); echo "</pre>";
 $PROJECT::includeModules("telegram");
 
 $TelegramModule = new TelegramModule();
