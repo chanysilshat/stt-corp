@@ -1,4 +1,6 @@
-<div class="dark-background">
+<div itemscope itemtype = "https://schema.org/Organization">
+    <span style="display:none" itemprop = "name" > https://<?=$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]?> </span>
+    <div class="dark-background">
     </div>
     <div class="header-menu">
         <div class="menu-burger js__menu-open">
@@ -418,7 +420,7 @@
                                         <path d="M37.6,34.5 L4,26.3 L66,2 L40.8,63.1 L33,34.1" id="Location" stroke="#ffffff" stroke-width="5" sketch:type="MSShapeGroup"></path>
                                     </g>
                                 </svg>
-                                <span>
+                                <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                                     #CITY#
                                 </span>
                             </a>
@@ -504,7 +506,7 @@
                             <g>
                             </g>
                         </svg>
-                        <h2>
+                        <h2 itemprop = "telephone">
                             8-(927)-237-46-48
                         </h2>
                     </div>
@@ -1234,6 +1236,7 @@
                 </div>
             </div>
         </div>
+</div>
     </form>
     <form id="server">
         <input type="hidden" name="HTTP_REFERER" value='<?=$_SERVER["HTTP_REFERER"]?>'>
@@ -1249,3 +1252,4 @@
         <input type="submit" value="Отправить">
     </form>
 
+<?echo "<pre>"; print_r($_SERVER); echo "</pre>";?>
