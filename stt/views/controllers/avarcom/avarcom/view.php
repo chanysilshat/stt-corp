@@ -1252,4 +1252,3 @@
         <input type="submit" value="Отправить">
     </form>
 
-<?echo "<pre>"; print_r($_SERVER); echo "</pre>";?>
