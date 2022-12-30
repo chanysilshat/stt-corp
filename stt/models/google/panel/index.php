@@ -54,7 +54,7 @@ $sitemap = $webmaster->sitemaps->get(
 
 
 
-/*
+
 $postBody = new Google\Service\Webmasters\SearchAnalyticsQueryRequest( [
 	'startDate'  => '2019-01-01',
 	'endDate'    => '2022-12-30',
@@ -70,7 +70,7 @@ $postBody = new Google\Service\Webmasters\SearchAnalyticsQueryRequest( [
 $searchAnalyticsResponse = $webmaster->searchanalytics->query( 'https://avarcom702.stt-corp.ru/', $postBody );
 
  echo "<pre>"; print_r($searchAnalyticsResponse); echo "</pre>";
-*/
+
 
 
 
@@ -87,8 +87,8 @@ $searchAnalyticsResponse = $webmaster->searchanalytics->query( 'https://avarcom7
 $response = $httpClient->post($endpoint, ['body' => $content]);
 $data['body'] = (string) $response->getBody();
 echo "<pre>"; print_r($data); echo "</pre>";*/
-/*
-$url = "https://avarcom702.stt-corp.ru/yanayl/";
+
+/*$url = "https://avarcom702.stt-corp.ru/yanayl/";
 $client->addScope('https://www.googleapis.com/auth/indexing');
 $httpClient = $client->authorize();
 $endpoint = 'https://indexing.googleapis.com/v3/urlNotifications:publish';

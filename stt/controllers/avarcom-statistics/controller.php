@@ -14,7 +14,7 @@ class AvarcomStatistics extends Controller
         $table = "avarcom_stat_visitor_ip";
         $res = $PROJECT->objects["TABLES"]->getList($table, [], []);
         foreach ($res as $item){
-            $items[date("d.m.Y H:00:00", strtotime($item["date_first"]))]++; 
+            $items[date("d.m.Y 00:00:00", strtotime($item["date_first"]))]++; 
         }
      
         ksort($items);
@@ -36,7 +36,7 @@ class AvarcomStatistics extends Controller
         $table = "avarcom_stat_history";
         $res = $PROJECT->objects["TABLES"]->getList($table, [], []);
         foreach ($res as $item){
-            $items[date("d.m.Y H:00:00", strtotime($item["date_in"]))]++; 
+            $items[date("d.m.Y 00:00:00", strtotime($item["date_in"]))]++; 
         }
      
         ksort($items);
