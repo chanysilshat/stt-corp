@@ -131,3 +131,15 @@ a:visited{
 .stt-table td{
     padding: 10px;
 }
+.module-item{
+    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid rgb(169, 169, 169);
+    cursor: pointer;
+}
+.module-item:hover{
+
+}
+.module-item a{
+    text-decoration: none;
+}

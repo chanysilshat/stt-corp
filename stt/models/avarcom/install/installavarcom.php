@@ -13,6 +13,7 @@ class InstallAvarcom extends Install{
             "map_where" => "VARCHAR(255)",
             "map_address" => "VARCHAR(255)",
             "map_address_info" => "VARCHAR(255)",
+            "canonical" => "VARCHAR(255)",
             "PRIMARY KEY" => "(id)",
         ],
         "avarcom_stat_visitor_ip" => [

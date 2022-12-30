@@ -12,6 +12,7 @@
         public $title = "";
         public $keywords = "";
         public $description = "";
+        public $canonical = "";
         public $sessionObject;
 
         private $objectsList;

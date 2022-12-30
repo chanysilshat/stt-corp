@@ -29,6 +29,7 @@ class AvarcomController extends Controller
                 $page_title = $res["data"][0]["page_title"];
                 $keywords = $res["data"][0]["keywords"];
                 $description = $res["data"][0]["description"];
+                $canonical = $res["data"][0]["canonical"];
                 $h1 = $res["data"][0]["h1"];
                 $map_where = $res["data"][0]["map_where"];
                 $map_address = $res["data"][0]["map_address"];
@@ -37,6 +38,7 @@ class AvarcomController extends Controller
                 $PROJECT->title = $page_title;
                 $PROJECT->keywords = $keywords;
                 $PROJECT->description = $description;
+                $PROJECT->canonical = $canonical;
 
                 ob_start();
                 $this->includeControllerView();

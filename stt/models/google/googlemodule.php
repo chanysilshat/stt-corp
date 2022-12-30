@@ -8,6 +8,6 @@ class GoogleModule extends Module{
     ];
 
     public function executeModule(){
-         
+        require_once  $_SERVER["DOCUMENT_ROOT"] . '/stt/models/google/vendor/autoload.php';
     } 
 }

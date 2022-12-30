@@ -17,6 +17,8 @@ $json = '{
 /*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);*/
+
+
 require_once  $_SERVER["DOCUMENT_ROOT"] . '/stt/models/google/vendor/autoload.php';
 
 $googleAccountKeyFilePath = $_SERVER["DOCUMENT_ROOT"] . "/stt/models/google/panel/ss.json";
@@ -29,12 +31,15 @@ $client->addScope( 'https://www.googleapis.com/auth/webmasters' );
 
 $webmaster = new Google\Service\Webmasters($client);
 
+
+
 // Получаем список сайтов, к которым есть доступ
 //$listSites = $webmaster->sites->listSites();
+//echo "<pre>"; print_r($listSites); echo "</pre>";
 
 // Получаем информацию о сайте
 //$site = $webmaster->sites->get('https://avarcom702.stt-corp.ru/');
-
+//echo "<pre>"; print_r($site); echo "</pre>";
 // Получаем список добавленных файлов Sitemap
 //$listSitemaps = $webmaster->sitemaps->listSitemaps('https://avarcom702.stt-corp.ru/');
 
@@ -52,18 +57,43 @@ $sitemap = $webmaster->sitemaps->get(
 /*
 $postBody = new Google\Service\Webmasters\SearchAnalyticsQueryRequest( [
 	'startDate'  => '2019-01-01',
-	'endDate'    => '2022-12-21',
+	'endDate'    => '2022-12-30',
 	'dimensions' => [
 		'query',
-		//'device',
-		//'date'
+		'device',
+		'date',
+    'page'
 	],
-	'rowLimit' => 5,
+	//'rowLimit' => 5,
 	'startRow' => 0
 ] );
 $searchAnalyticsResponse = $webmaster->searchanalytics->query( 'https://avarcom702.stt-corp.ru/', $postBody );
 
- */
+ echo "<pre>"; print_r($searchAnalyticsResponse); echo "</pre>";
+*/
 
 
-echo "<pre>"; print_r($urlInspection_index); echo "</pre>";
+
+//Отправляем на обновление страницу
+ /*$url = "https://avarcom702.stt-corp.ru/";
+ $type = "URL_UPDATED";
+ $client->addScope('https://www.googleapis.com/auth/indexing');
+ $httpClient = $client->authorize();
+ $endpoint = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
+ $content = json_encode([
+  'url' => $url,
+  'type' => $type
+]);
+$response = $httpClient->post($endpoint, ['body' => $content]);
+$data['body'] = (string) $response->getBody();
+echo "<pre>"; print_r($data); echo "</pre>";*/
+/*
+$url = "https://avarcom702.stt-corp.ru/yanayl/";
+$client->addScope('https://www.googleapis.com/auth/indexing');
+$httpClient = $client->authorize();
+$endpoint = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
+
+$response = $httpClient->get('https://indexing.googleapis.com/v3/urlNotifications/metadata?url=' . urlencode($url));
+$data = json_decode((string) $response->getBody());
+
+echo "<pre>"; print_r($data); echo "</pre>";*/

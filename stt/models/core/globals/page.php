@@ -30,6 +30,10 @@ class Page{
         $meta .= '<meta name="keywords" content="' . $keywords . '">';
         $meta .= '<meta name="description" content="' . $description . '">';
 
+        if (!empty($PROJECT->canonical)){
+            $meta .= '<link rel="canonical" href="' . $PROJECT->canonical . '" />';
+        }
+
         if (strpos($buffer, "<head></head>") !== false){
             $buffer = preg_replace('|(<head>)(</head>)|isU', "$1" . $meta . $css . $script . "$2", $buffer);  
         } else {
