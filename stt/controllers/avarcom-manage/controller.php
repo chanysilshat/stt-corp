@@ -98,13 +98,23 @@ class AvarcomManageController extends Controller
         $urlset->setAttribute('xmlns','http://www.sitemaps.org/schemas/sitemap/0.9');
 
         // Создаём дочерний элемент
+        $res["data"][] = [
+            "city_code" => ""
+        ];
         foreach ($res["data"] as $data){
             $url = $dom->createElement('url');
 
             $loc = $dom->createElement('loc');
-	        $text = $dom->createTextNode(
-                htmlentities('https://' . $_SERVER["HTTP_HOST"]. '/' . $data['city_code'] . '/', ENT_QUOTES)
-            );
+            if (!empty($data["city_code"])){
+                $text = $dom->createTextNode(
+                    htmlentities('https://' . $_SERVER["HTTP_HOST"]. '/' . $data['city_code'] . '/', ENT_QUOTES)
+                );
+            } else {
+                $text = $dom->createTextNode(
+                    htmlentities('https://' . $_SERVER["HTTP_HOST"]. '/', ENT_QUOTES)
+                );
+            }
+	        
             $loc->appendChild($text);
             $url->appendChild($loc);
         
