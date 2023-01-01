@@ -71,7 +71,7 @@ if (isset($_REQUEST["name"]) && isset($_REQUEST["phone"])){
 }
 
 if (isset($_REQUEST["phoneClick"]) && $_REQUEST["phoneClick"] == "click"){
-    $text = "Произошло нажатие на кнопку звонка! \n ID Яндекс клиента: " . $_REQUEST["yandexID"] . " \n " . $_REQUEST["HTTP_REFERER"] . "\n" .  $_REQUEST["HTTP_SEC_CH_UA"] . "\n" .  $_REQUEST["REMOTE_ADDR"];
+    $text = "Произошло нажатие на кнопку звонка! \n ID Яндекс клиента: " . $_REQUEST["yandexID"] . " \n " . $_REQUEST["HTTP_REFERER"] . "\n" .  $_REQUEST["HTTP_SEC_CH_UA"] . "\n" .  $_REQUEST["REMOTE_ADDR"] . "\n" .  $_REQUEST["url"];
     message_to_telegram($text);
 }
 
