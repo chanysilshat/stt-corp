@@ -2,38 +2,42 @@
 $data = $arData;
 foreach ($data["DATA"] as $key => $dataItem){
     foreach ($dataItem["ITEMS"] as $value){
-        if (isset($poins[$key][$value["X_VALUE"]])){
-            if ($value["Y_VALUE"] > $poins[$key][$value["X_VALUE"]]){
-                $poins[$key][$value["X_VALUE"]] = $value["Y_VALUE"];
-                $info[$key][$value["X_VALUE"]] = $value["INFO"];
-            }
-
+        if (isset($poins[$key][date("d.m.Y 00:00:00", strtotime($value["X_VALUE"]))])){
+            $poins[$key][date("d.m.Y 00:00:00", strtotime($value["X_VALUE"]))] += $value["Y_VALUE"];
+            //$info[$key][date("d.m.Y 00:00:00", strtotime($value["X_VALUE"]))] = $value["INFO"];
         } else {
-            $poins[$key][$value["X_VALUE"]] = $value["Y_VALUE"];
-            $info[$key][$value["X_VALUE"]] = $value["INFO"];
+            $poins[$key][date("d.m.Y 00:00:00", strtotime($value["X_VALUE"]))] = $value["Y_VALUE"];
         }
     }
-    ksort($poins[$key]);
-    ksort($info[$key]);
+
 }
+
+foreach ($poins as $key => $poin){
+    $max[$key] = max($poins[$key]);
+}
+$data["Y_LABEL"]["MAX"] = max($max) + 5;
+
 $pointSTR = [];
 $circle = [];
 foreach ($poins as $key => $point){
     foreach ($point as $vKey => $value){
         if ($data["X_LABEL"]["TYPE"] == "DATE"){
-            $x = ((strtotime($vKey) - $data["X_LABEL"]["MIN"]) / $data["WIDTH"]) / (($data["X_LABEL"]["MAX"] - $data["X_LABEL"]["MIN"]) / $data["WIDTH"]) * $data["WIDTH"] + 90;
+            $x = ((strtotime($vKey) - $data["X_LABEL"]["MIN"]) / $data["WIDTH"]) / (($data["X_LABEL"]["MAX"] - $data["X_LABEL"]["MIN"]) / $data["WIDTH"]) * $data["WIDTH"] + 137;
             $y = $data["HEIGHT"] - $value / ($data["Y_LABEL"]["MAX"] - $data["Y_LABEL"]["MIN"]) * $data["HEIGHT"];
             $pointSTR[$key] .= $x . "," . $y . " ";
             $circle[$key][$vKey] = [
                 "x" => $x,
                 "y" => $y,
-                "INFO" => $info[$key][$vKey]
+                "INFO" => $poins[$key][$vKey]
             ];
             
         }
     }
     
 }
+echo "<pre>"; print_r($pointSTR); echo "</pre>";
+
+
 ?>
 
 <div avarcom-svg-stat="test">
