@@ -62,7 +62,12 @@ if ($settings["user_authorized"] == "y"){
             'CODE' => 'updates',
             'PATH' => '/admin/updates/',
         ],
-        
+        [
+            'LOGO' => '/upload/panel/update.svg',
+            'NAME' => 'Режим разработчика',
+            'CODE' => 'updates',
+            'PATH' => '/admin/updates/',
+        ],
     ];
     $settings["MAIN_MENU"] = $menu;
     

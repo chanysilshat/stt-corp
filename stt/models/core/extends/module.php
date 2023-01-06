@@ -2,10 +2,9 @@
 abstract class Module{
 
     protected $autoload;
-
+    protected $version;
     protected $moduleName;
     protected $moduleTitle = "";
-
     protected $arFields = [];
     protected $controllersList = [];
     protected static $class = __CLASS__;
