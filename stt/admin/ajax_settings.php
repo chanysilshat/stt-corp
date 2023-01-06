@@ -56,6 +56,12 @@ if ($settings["user_authorized"] == "y"){
             'CODE' => 'clients',
             'PATH' => '/admin/clients/',
         ],
+        [
+            'LOGO' => '/upload/panel/update.svg',
+            'NAME' => 'Обновления',
+            'CODE' => 'updates',
+            'PATH' => '/admin/updates/',
+        ],
         
     ];
     $settings["MAIN_MENU"] = $menu;

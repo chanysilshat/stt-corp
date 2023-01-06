@@ -197,9 +197,11 @@
                         }
                     }
                 }
+
                 arsort($searchCondition);
                 if (!empty($searchCondition)){
                     $keys = array_keys($searchCondition);
+
                     $keyPage = $keys[0];
                     $manageFile = $urlRuleList[$keyPage]["manage_file"];
     

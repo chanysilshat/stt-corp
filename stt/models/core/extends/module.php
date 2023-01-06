@@ -7,6 +7,7 @@ abstract class Module{
     protected $moduleTitle = "";
 
     protected $arFields = [];
+    protected $controllersList = [];
     protected static $class = __CLASS__;
 
     public function __construct()

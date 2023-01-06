@@ -109,4 +109,24 @@ class StructureSystem
         }
     }
 
+    public function createZipArchive($zipName){
+
+
+        $zip = new ZipArchive();
+        $zip->open($_SERVER["DOCUMENT_ROOT"]."/pages/archive.zip", ZIPARCHIVE::CREATE); //Открываем (создаём) архив archive.zip
+
+        foreach ($this->dirStructure as $key => $structure){
+            $zipFilePath = str_replace($_SERVER["DOCUMENT_ROOT"] . $this->dir . DIRECTORY_SEPARATOR, "", $key);
+
+            foreach ($structure as $fileName){
+                $ss = $zipFilePath . $fileName;
+                $zip->addFromString($zipFilePath . $fileName, file_get_contents($key . $fileName));
+            }
+            //echo "<pre>"; print_r($structure); echo "</pre>";
+
+        }
+
+
+        $zip->close(); //Завершаем работу с архивом 
+    }
 }

@@ -96,6 +96,12 @@ class InstallCore extends Install{
         "stt_url_address" => [
             [
                 
+                "page_condition" => "/admin/updates/",
+                "manage_file" => "/stt/admin/updates.php",
+                "page_request" => "",
+            ],
+            [
+                
                 "page_condition" => "/admin/modules/#module_code#",
                 "manage_file" => "/stt/admin/module.php",
                 "page_request" => "",

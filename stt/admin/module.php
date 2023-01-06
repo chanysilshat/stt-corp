@@ -23,18 +23,21 @@ while($models = readdir($dir)){
         if (file_exists($fileFullName)){
             $PROJECT::includeModules($models);
 
-            foreach( get_declared_classes() as $class ){
-                if(is_subclass_of( $class, 'Module') ){
-                    $ch_class = new $class();  
-                    if ($ch_class->getModuleName() == $models){
-                        $modelsList[] = [
-                            "module_name" => $ch_class->getModuleName(),
-                            "module_title" => $ch_class->getModuleTitle(),
-                        ];
-                    }
-                }
-            }
+            $arModels[$models] = [];
+            
 
+        }
+    }
+}
+
+foreach( get_declared_classes() as $class ){
+    if(is_subclass_of( $class, 'Module') ){
+        $ch_class = new $class();  
+        if (isset($arModels[$ch_class->getModuleName()])){
+            $modelsList[] = [
+                "module_name" => $ch_class->getModuleName(),
+                "module_title" => $ch_class->getModuleTitle(),
+            ];
         }
     }
 }

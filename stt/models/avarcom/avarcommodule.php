@@ -12,7 +12,19 @@ class AvarcomModule extends Module{
         ], 
     ];
 
+    protected $controllersList = [
+        "avarcom" => [
+
+        ],
+        "avarcom-manage" => [
+
+        ],
+        "avarcom-statistics" => [
+
+        ]
+    ];
+
     public function executeModule(){
-       
+       //echo "<pre>"; print_r($this->controllersList); echo "</pre>";
     } 
 }
