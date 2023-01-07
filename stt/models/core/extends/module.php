@@ -29,20 +29,29 @@ abstract class Module{
         }
     } 
 
-    public function beforeExecuteModule(){
+    public function beforeExecuteModule()
+    {
 
     }
 
-    public function executeModule(){
+    public function executeModule()
+    {
 
     }
 
-    public function getModuleName(){
+    public function getModuleName()
+    {
         return $this->moduleName;
     }
 
-    public function getModuleTitle(){
+    public function getModuleTitle()
+    {
         return $this->moduleTitle;
+    }
+
+    public function getControllersList()
+    {
+        return $this->controllersList;
     }
 
 }

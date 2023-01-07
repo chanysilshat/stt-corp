@@ -14,13 +14,13 @@ class AvarcomModule extends Module{
 
     protected $controllersList = [
         "avarcom" => [
-
+            "avarcom"
         ],
         "avarcom-manage" => [
-
+            "manage"
         ],
         "avarcom-statistics" => [
-
+            "statistics"
         ]
     ];
 
