@@ -5,7 +5,8 @@
     final class Project
     {
 
-        public $includuModulesList = [];
+        public $includeModulesList = [];
+        public $includeModulesPath = [];
         public $objects;
         public $projectStyles;
         public $projectJsScripts;
@@ -59,11 +60,30 @@
         //Подключает необходимые модули
         public static function includeModules($module_code){
             global $PROJECT;
-            $fullName = $_SERVER["DOCUMENT_ROOT"] . "/stt/models/" . $module_code . "/" . $module_code . "module.php";
-            if (file_exists($fullName)){
-                $PROJECT->includuModulesList[$module_code] = $module_code;
-                require_once $fullName;
+
+            if (!isset($PROJECT->includeModulesList[$module_code])){
+                $fullName = $_SERVER["DOCUMENT_ROOT"] . "/stt/models/" . $module_code . "/" . $module_code . "module.php";
+                
+                if (file_exists($fullName)){
+                    require_once $fullName;
+    
+                    foreach( get_declared_classes() as $class ){
+                        if(is_subclass_of( $class, 'Module') ){
+                            $children[] = $class; 
+                            $path = (new \ReflectionClass($class))->getFileName();
+                            $PROJECT->includeModulesPath[$path] = $class;
+                        } 
+                    }
+    
+                    
+                    if (isset($PROJECT->includeModulesPath[$fullName])){
+                        $mod = new $PROJECT->includeModulesPath[$fullName]();
+                        $PROJECT->includeModulesList[$module_code] = $mod;
+                    }
+    
+                }
             }
+            
         }    
 
         //Подключает контроллеры проекта

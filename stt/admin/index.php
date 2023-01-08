@@ -1,5 +1,9 @@
 <?
-/** @var object $PROJECT */
+$PROJECT::includeModules("rest");
+
+//$RestModule = new RestModule();
+//$OutRest = new OutRest();
+/** @var object $PROJECT */ 
 
 //Session::removeSession("USER_HASH");
 //Session::removeSession("USER_SESS_ID");

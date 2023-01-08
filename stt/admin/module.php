@@ -25,10 +25,7 @@ if (isset($_REQUEST["DYNAMICS_PAGE"]["module_code"])){
             $fileFullName = $_SERVER["DOCUMENT_ROOT"] . '/stt/models/'.$models.'/panel/index.php';
             if (file_exists($fileFullName)){
                 $PROJECT::includeModules($models);
-
                 $arModels[$models] = [];
-                
-
             }
         }
     }
@@ -52,3 +49,5 @@ if (isset($_REQUEST["DYNAMICS_PAGE"]["module_code"])){
     <?endforeach?> 
 
 <?}?>
+<?
+?>

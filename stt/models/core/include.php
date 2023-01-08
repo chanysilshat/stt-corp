@@ -28,12 +28,13 @@
 
 
     $PROJECT = new Project();
+    $PROJECT->setObject("AutoLoad", $Load);
     $PROJECT::includeModules("core");
 
     
     $PROJECT->setObject("STT", $stt);
     $PROJECT->setObject("Core", $stt->core);
-    $PROJECT->setObject("AutoLoad", $Load);
+
     $stt->setAutoLoadedObject($Load);
     //Старт проекта
     $stt->startProject();

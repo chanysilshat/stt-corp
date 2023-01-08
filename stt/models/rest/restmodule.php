@@ -10,6 +10,6 @@ class RestModule extends Module{
     ];
 
     public function executeModule(){
-  
+        //echo "<pre>"; print_r($_SERVER); echo "</pre>";
     } 
 }

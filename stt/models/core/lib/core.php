@@ -207,7 +207,7 @@
     
                 }
             }
-    
+            
 
             if (isset($_GET)){
                 $explode = explode("?", $pageName);
@@ -268,12 +268,9 @@
             $this->includeHeader();
             $header = ob_get_contents();
             ob_end_clean();
-            
             ob_start();
             if (file_exists($fullFileName)){
-                require_once ($fullFileName);
-
-   
+                require_once ($fullFileName);   
             } elseif (file_exists($_SERVER["DOCUMENT_ROOT"] . $manageFile)){
                 if (!empty($manageFile)){
                     $fullFileName = $_SERVER["DOCUMENT_ROOT"] . $manageFile;
@@ -281,9 +278,7 @@
                 } else {
                     require_once ($_SERVER["DOCUMENT_ROOT"] . "/pages/404.php");
                 }
-
             } else {
-          
                 require_once ($_SERVER["DOCUMENT_ROOT"] . "/pages/404.php");
             }
             $page = ob_get_contents();
@@ -298,6 +293,7 @@
                 echo $header;
             }
             echo $page;
+
             if ($this->header){
                 echo $footer;
             }

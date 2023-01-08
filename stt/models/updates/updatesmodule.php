@@ -16,6 +16,7 @@ class UpdatesModule extends Module{
     
     public function executeModule()
     {
+        //echo "<pre>"; print_r($_SERVER); echo "</pre>";
          
     }
 
@@ -23,6 +24,6 @@ class UpdatesModule extends Module{
     {
         global $PROJECT; 
         $PROJECT::includeModules("rest");
-        $RestModule = new RestModule();
+
     }
 }

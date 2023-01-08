@@ -47,5 +47,5 @@ foreach ($chats as $chatID){
         'text' => $text,
     ];
     //$res = $TelegramBot->executeMethod("sendMessage", $data);
-    echo "<pre>"; print_r($res); echo "</pre>";
+    //echo "<pre>"; print_r($res); echo "</pre>";
 }

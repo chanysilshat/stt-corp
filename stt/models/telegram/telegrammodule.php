@@ -18,5 +18,5 @@ class TelegramModule extends Module{
 
     public function executeModule(){
   
-    } 
+    }
 }
