@@ -1,4 +1,7 @@
 <?
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if (isset($_REQUEST["DYNAMICS_PAGE"]["module_code"])){
 
     $models = $_REQUEST["DYNAMICS_PAGE"]["module_code"];
@@ -12,40 +15,40 @@ if (isset($_REQUEST["DYNAMICS_PAGE"]["module_code"])){
     
 } else {
 
-$dir = opendir($_SERVER["DOCUMENT_ROOT"] . '/stt/models/');
+    $dir = opendir($_SERVER["DOCUMENT_ROOT"] . '/stt/models/');
 
-$modelsList = [];
+    $modelsList = [];
 
-while($models = readdir($dir)){
-    if (is_dir('stt/models/'.$models.'/panel/') && $models != '.' && $models != '..') {
+    while($models = readdir($dir)){
+        if (is_dir('stt/models/'.$models.'/panel/') && $models != '.' && $models != '..') {
 
-        $fileFullName = $_SERVER["DOCUMENT_ROOT"] . '/stt/models/'.$models.'/panel/index.php';
-        if (file_exists($fileFullName)){
-            $PROJECT::includeModules($models);
+            $fileFullName = $_SERVER["DOCUMENT_ROOT"] . '/stt/models/'.$models.'/panel/index.php';
+            if (file_exists($fileFullName)){
+                $PROJECT::includeModules($models);
 
-            $arModels[$models] = [];
-            
+                $arModels[$models] = [];
+                
 
+            }
         }
     }
-}
-
-foreach( get_declared_classes() as $class ){
-    if(is_subclass_of( $class, 'Module') ){
-        $ch_class = new $class();  
-        if (isset($arModels[$ch_class->getModuleName()])){
-            $modelsList[] = [
-                "module_name" => $ch_class->getModuleName(),
-                "module_title" => $ch_class->getModuleTitle(),
-            ];
+ 
+    foreach( get_declared_classes() as $class ){
+        if(is_subclass_of( $class, 'Module') ){
+            $ch_class = new $class();  
+            if (isset($arModels[$ch_class->getModuleName()])){
+                $modelsList[] = [
+                    "module_name" => $ch_class->getModuleName(),
+                    "module_title" => $ch_class->getModuleTitle(),
+                ];
+            }
         }
     }
-}
 
-foreach ($modelsList as $module):?>
-    <div class="module-item">
-        <a stt-admin href="/admin/modules/<?=$module["module_name"]?>/"><?=$module["module_title"]?></a>
-    </div>
-<?endforeach?>
+    foreach ($modelsList as $module):?>
+        <div class="module-item">
+            <a stt-admin href="/admin/modules/<?=$module["module_name"]?>/"><?=$module["module_title"]?></a>
+        </div>
+    <?endforeach?> 
 
 <?}?>

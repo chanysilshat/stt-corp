@@ -136,10 +136,21 @@ a:visited{
     font-size: 16px;
     border-bottom: 1px solid rgb(169, 169, 169);
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
 .module-item:hover{
 
 }
 .module-item a{
     text-decoration: none;
+}
+.stt-module-list .module-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.stt-module-list .module-item .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

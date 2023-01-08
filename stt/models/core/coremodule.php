@@ -26,6 +26,20 @@ class CoreModule extends Module{
         "manage" => ["manage"],
     ];
 
+    protected $moduleFilesList = [
+        "/index.php",
+        "/stt/initialization.php",
+        "/stt/admin/ajax_settings.php",
+        "/stt/css/sttadminpanel.css",
+        "/stt/css/stttables.css",
+        "/stt/css/style.css",
+        "/stt/js/script.js",
+        "/stt/stttables.js",
+        "/stt/views/panel/admin/footer.php",
+        "/stt/views/panel/admin/head.php",
+        "/stt/views/panel/admin/header.php",
+    ];
+    
     public function executeModule(){
         global $PROJECT;
         global $User;
@@ -45,4 +59,6 @@ class CoreModule extends Module{
         $PROJECT->setConfigObject($Configs);
         
     }
+
+    
 }

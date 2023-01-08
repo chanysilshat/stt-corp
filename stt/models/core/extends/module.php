@@ -2,11 +2,12 @@
 abstract class Module{
 
     protected $autoload;
-    protected $version;
+    protected $version = 1;
     protected $moduleName;
     protected $moduleTitle = "";
     protected $arFields = [];
     protected $controllersList = [];
+    protected $moduleFilesList = [];
     protected static $class = __CLASS__;
 
     public function __construct()
@@ -52,6 +53,16 @@ abstract class Module{
     public function getControllersList()
     {
         return $this->controllersList;
+    }
+
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    public function getModuleFilesList()
+    {
+        return $this->moduleFilesList;
     }
 
 }

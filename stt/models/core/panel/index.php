@@ -17,7 +17,7 @@ file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/sys_files.txt", print_r($files, 
 $zip = new ZipArchive();
 $filename = "stt/initialization.php";
 
-
+ 
 $zip->open($_SERVER["DOCUMENT_ROOT"]."/pages/archive.zip", ZIPARCHIVE::CREATE); //Открываем (создаём) архив archive.zip
 $zip->addFromString('dir/test.txt', 'здесь следует содержимое файла');
 $zip->addFile("index.php"); //Добавляем в архив файл index.php

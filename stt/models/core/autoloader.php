@@ -18,18 +18,18 @@ class AutoLoaderModels{
     }
 
     private function includeClassFile($dir, $class){
-        if (isset($this->$arrLoaded[$this->moduleName][$dir])){
+        if (isset($this->arrLoaded[$this->moduleName][$dir])){
             $issetElement = false; 
-            foreach ($this->$arrLoaded[$this->moduleName][$dir] as $object){
+            foreach ($this->arrLoaded[$this->moduleName][$dir] as $object){
                 if ($object == $class){
                     $issetElement = true;
                 }
             }
             if (!$issetElement){
-                $this->$arrLoaded[$this->moduleName][$dir][] = $class;
+                $this->arrLoaded[$this->moduleName][$dir][] = $class;
             }
         } else {
-            $this->$arrLoaded[$this->moduleName][$dir][] = $class;
+            $this->arrLoaded[$this->moduleName][$dir][] = $class;
         }
 
         $className = $class;
@@ -55,7 +55,7 @@ class AutoLoaderModels{
         }
     }
     public function getLoadedArray(){
-        return $this->$arrLoaded;
+        return $this->arrLoaded;
     }
 }
 ?>

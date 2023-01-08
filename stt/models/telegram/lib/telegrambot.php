@@ -2,7 +2,7 @@
 class TelegramBot extends OutRest
 {
     protected $token;
-    protected $rest;
+    public $rest;
     protected $url = "https://api.telegram.org/bot";
 
     protected function executeRest()

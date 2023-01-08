@@ -264,12 +264,15 @@
                 $this->footerView = $_SERVER["DOCUMENT_ROOT"] . "/stt/views/panel/admin/footer.php";
             }
        
+            ob_start();
             $this->includeHeader();
+            $header = ob_get_contents();
+            ob_end_clean();
             
+            ob_start();
             if (file_exists($fullFileName)){
                 require_once ($fullFileName);
 
-                //$fullFileName = $fullFileName;
    
             } elseif (file_exists($_SERVER["DOCUMENT_ROOT"] . $manageFile)){
                 if (!empty($manageFile)){
@@ -277,17 +280,27 @@
                     require_once ($_SERVER["DOCUMENT_ROOT"] . $manageFile);
                 } else {
                     require_once ($_SERVER["DOCUMENT_ROOT"] . "/pages/404.php");
-                    //$fullFileName = $_SERVER["DOCUMENT_ROOT"] . "/pages/404.php";
                 }
 
             } else {
           
                 require_once ($_SERVER["DOCUMENT_ROOT"] . "/pages/404.php");
-                //require_once ($fullFileName);
-
             }
+            $page = ob_get_contents();
+            ob_end_clean();
 
+            ob_start();
             $this->includeCoreFooter();
+            $footer = ob_get_contents();
+            ob_end_clean();
+
+            if ($this->header){
+                echo $header;
+            }
+            echo $page;
+            if ($this->header){
+                echo $footer;
+            }
         }
 
         //Подключение подвала
@@ -296,11 +309,13 @@
             $this->includePage($pageName);
         }
 
-        private function includeViewHead(){
+        private function includeViewHead()
+        {
 
         }
 
-        private function includeViewFooter(){
+        private function includeViewFooter()
+        {
             
         }
 
