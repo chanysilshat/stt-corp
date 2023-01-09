@@ -1,5 +1,5 @@
 <?
-echo "ss";
+echo "1111123444";
     global $PROJECT;
     $PROJECT::includeModules("rest");
     $B24Module = new B24Module();

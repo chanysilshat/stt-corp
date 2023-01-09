@@ -1,6 +1,6 @@
 <?
 
-$archiveUrl = $_SERVER["HTTP_HOST"];
+$archiveUrl = $_SERVER["HTTP_ORIGIN"];
 $archiveName = "sttupdate.php";
 
 function curl_download($url, $file)
@@ -83,6 +83,7 @@ function unzip_file( $file_path, $dest ){
         $filePath = $_SERVER["DOCUMENT_ROOT"] . "/" . $fileName;
         $data = $result;
         file_put_contents($filePath, $UpdateRest->executeMethod("get.text.update.file", $data));
+        file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/error1.txt", print_r($_SERVER, true));
 
         $url = $archiveUrl . "/" . $fileName;
         echo $url;
