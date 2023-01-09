@@ -8,6 +8,7 @@ class UpdateRest extends OutRest
     {
         $this->rest = [
             "get.modules.info" => $this->url . '/get.modules.info/',
+            "get.text.update.file" => $this->url . '/get.text.update.file/',
         ];
     }
 }

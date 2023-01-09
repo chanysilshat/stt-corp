@@ -3,6 +3,7 @@ class CoreModule extends Module{
 
     protected $moduleName = "core";
     protected $moduleTitle = "Ядро проекта";
+    protected $version = 1;
 
     protected $arFields = [
         "extends" => [
