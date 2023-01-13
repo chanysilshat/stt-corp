@@ -22,8 +22,3 @@
     <?endforeach?>
 </table>
 _______________
-<?
-    $data = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/stt/json/database/" . $_REQUEST["DYNAMICS_PAGE"]["detail_table"] . ".json"), true);
-
-    echo "<pre>"; print_r($data); echo "</pre>";
-?>

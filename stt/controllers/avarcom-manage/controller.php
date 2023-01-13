@@ -81,7 +81,7 @@ class AvarcomManageController extends Controller
         $fileName = $this->jsonDirPage . "googlepages/" . $this->getUrlFile($url) . ".json";
 
         $data = json_decode($this->AvarcomGoogle->updateScanPage($url), true);
-        file_put_contents($fileName, json_encode($data["urlNotificationMetadata"]));
+        file_put_contents($fileName, json_encode($data));
     }
 
     private function createSiteMap()

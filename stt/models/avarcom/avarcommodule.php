@@ -3,6 +3,18 @@ class AvarcomModule extends Module{
 
     protected $moduleName = "avarcom";
     protected $moduleTitle = "Аварком";
+    protected $dependency = [
+        "core" => [
+            1,
+        ],
+        "google" => [
+            1,
+        ],
+        "telegram" => [
+            1,
+        ],
+
+    ];
     protected $arFields = [
         "lib" => [
             "avarcomgoogle", 
@@ -25,6 +37,6 @@ class AvarcomModule extends Module{
     ];
 
     public function executeModule(){
-       //echo "<pre>"; print_r($this->controllersList); echo "</pre>";
+        
     } 
 }

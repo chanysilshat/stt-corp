@@ -1,4 +1,5 @@
 <?
+
 abstract class Module{
 
     protected $autoload;
@@ -8,6 +9,8 @@ abstract class Module{
     protected $arFields = [];
     protected $controllersList = [];
     protected $moduleFilesList = [];
+    protected $dependency = [];
+
     protected static $class = __CLASS__;
 
     public function __construct()

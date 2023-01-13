@@ -1,4 +1,5 @@
 <?
+
 class CoreModule extends Module{
 
     protected $moduleName = "core";
@@ -25,6 +26,12 @@ class CoreModule extends Module{
             "sttconfigs", //
         ], 
         "manage" => ["manage"],
+    ];
+
+    protected $controllersList = [
+        "tables" => [
+            "table"
+        ]
     ];
 
     protected $moduleFilesList = [
